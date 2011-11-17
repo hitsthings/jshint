@@ -2333,7 +2333,7 @@ loop:   for (;;) {
 
 // We don't like the empty statement.
 
-        if (t.id === ';') {
+        if (t.id === ';' && (scope !== global || !option.topsemic) {
             warning("Unnecessary semicolon.", t);
             advance(';');
             return;
